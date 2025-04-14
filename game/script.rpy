@@ -7,8 +7,6 @@ define orion = Character("Orion Solis", color="#ffffff")
 
 label start:
 
-    show 276_16
-
     orion "They say the world wasn't always like this, but I can't remember a time before the air became poison and the rich built their towers so high that they forgot people still exist on the ground"
 
 
