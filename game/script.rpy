@@ -13,11 +13,7 @@ define n = Character("NOVA", color="#ffffff")
 
 label start:
 
-
     o "2157. I used to believe in order. In the chain of command. But after the last collapse... I started asking questions."
-
-    #show vera neutral at left
-    #with dissolve
 
     v "Orion Solis. You're exactly the type we need. Aegis watches everything. And we've been watching you."
 
@@ -46,7 +42,26 @@ label out:
     v "This isn't about power, Orion. It's about survival."
     jump continue1
 
-label act1end:
+label continue1:
+    v "NOVA can restore order to the world. It would save millions of lives."
+    o "At the cost of how many others? A brutal order."
+    v "Casualties may be necessary, yes. That is an outcome Aegis is willing to accept."
+    menu:
+        "I can't commit to something without questioning it first.":
+            jump skeptical
+        "If it means securing a future for humanity, I'll do what it takes.":
+            jump interested
+
+label skeptical:
+    v "If you hesitate too long, you might find yourself on the wrong side of history."
+    jump act1part2
+
+label interested:
+    v "Good. We don't have the luxury of hesitation. You'll be briefed on your first directive shortly."
+    jump act1part2
+
+label act1part2:
+
     jump act3
 
 
