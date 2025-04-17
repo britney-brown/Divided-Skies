@@ -1,0 +1,22 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 12: expected statement.
+    aegis = 0
+          ^
+
+File "game/script.rpy", line 13: expected statement.
+    resistance = 0
+               ^
+
+File "game/script.rpy", line 14: expected statement.
+    ethics = 0
+           ^
+
+File "game/script.rpy", line 65: expected statement.
+    aegis += 1
+          ^
+
+Ren'Py Version: Ren'Py 8.3.7.25031702
+Thu Apr 17 00:31:39 2025
