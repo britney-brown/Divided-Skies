@@ -17,6 +17,8 @@ $ ethics = 0
 
 label start:
 
+    show orion at left
+
     o "2157. I used to believe in order. In the chain of command. But after the last collapse... I started asking questions."
 
     v "Orion Solis. You're exactly the type we need. Aegis watches everything. And we've been watching you."
@@ -62,7 +64,7 @@ label skeptical:
 
 label interested:
     v "Good. We don't have the luxury of hesitation. You'll be briefed on your first directive shortly."
-    $ aegis += 1
+    #$ aegis += 1
     jump act1part2
 
 label act1part2:
