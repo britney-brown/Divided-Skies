@@ -21,6 +21,9 @@ label start:
 
     o "2157. I used to believe in order. In the chain of command. But after the last collapse... I started asking questions."
 
+    show vera at right
+    with dissolve
+
     v "Orion Solis. You're exactly the type we need. Aegis watches everything. And we've been watching you."
 
     o "I'm no pawn, Castille. Not anymore."
@@ -68,6 +71,24 @@ label interested:
     jump act1part2
 
 label act1part2:
+    ## introduce talia ##
+
+    o "Things can't go on like this. Maybe Castille is right."
+
+    o "Maybe NOVA is the way forward."
+
+    show talia at right
+    with dissolve
+
+    t "If you choose wrong, it's not just the top that burns. We all do."
+
+    t "Down here, we fight for air. And Aegis? Just another boot on our necks."
+
+    t "You can make things right."
+
+    o "What is right? What good is freedom if we are barely surviving?"
+
+    t "If we take down Aegis, we can rebuild. We will never get another chance."
 
     jump act3
 
