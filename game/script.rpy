@@ -19,7 +19,9 @@ label start:
 
     show orion at left
 
-    o "2157. I used to believe in order. In the chain of command. But after the last collapse... I started asking questions."
+    o "2157. I used to believe in order. In the chain of command. But now... I don't know anymore."
+    
+    o "The rich look down on us from their towers while the rest of us struggle in the chaos on the ground."
 
     show vera at right
     with dissolve
@@ -92,7 +94,44 @@ label act1part2:
 
     jump act3
 
+label act1part3:
 
+    v "Solis. Welcome to Aegis. I'd like you to meet our lead engineer: Elias Rowe. You will be acting to secure the facility while he deploys NOVA."
+
+    show elias at right
+    with dissolve
+
+    e "I built NOVA to save what's left of this world. It can react faster than any human."
+
+    e "It can prevent conflict and avoid needless suffering."
+
+    o "But at the cost of freedom."
+
+    e "Yes. But maybe that can be mitigated. I still have time to build guardrails into NOVA."
+
+    menu:
+        "Does Castille know?":
+            jump curious
+        "What kind of guardrails?":
+            jump interested2
+
+label curious:
+    e "No. It's better that way. Vera has a... particular way of running things around here."
+    e "She believes that NOVA requires full control to be effective."
+    o "And what you believe?"
+    e "I believe in humanity's potential to grow through this adversity. It just needs a little help."
+    jump act2
+
+label interested2:
+    e "I can prevent it from taking action directly. It can act as an advisor, providing guidance on the restoration of peace."
+    o "Do you think that's enough?"
+    e "I don't know. But I don't think I can implement what Vera wants in good conscience."
+    jump act2
+
+######################################### SECOND ACT #########################################
+
+label act2:
+    jump act3
 
 ######################################### THIRD ACT #########################################
 
