@@ -1,28 +1,30 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 80, in script
-    if ending == "control":
-  File "game/script.rpy", line 80, in <module>
-    if ending == "control":
-NameError: name 'ending' is not defined
+  File "game/script.rpy", line 20, in script
+    show orion left
+Exception: Image 'orion' does not accept attributes 'left'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 80, in script
-    if ending == "control":
-  File "C:\Users\7brit\OneDrive\Desktop\renpy-8.3.7-sdk\renpy\ast.py", line 1856, in execute
-    if renpy.python.py_eval(condition):
-  File "C:\Users\7brit\OneDrive\Desktop\renpy-8.3.7-sdk\renpy\python.py", line 1218, in py_eval
-    return py_eval_bytecode(code, globals, locals)
-  File "C:\Users\7brit\OneDrive\Desktop\renpy-8.3.7-sdk\renpy\python.py", line 1211, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/script.rpy", line 80, in <module>
-    if ending == "control":
-NameError: name 'ending' is not defined
+  File "game/script.rpy", line 20, in script
+    show orion left
+  File "C:\Users\7brit\OneDrive\Desktop\renpy-8.3.7-sdk\renpy\ast.py", line 1124, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "C:\Users\7brit\OneDrive\Desktop\renpy-8.3.7-sdk\renpy\ast.py", line 1087, in show_imspec
+    renpy.config.show(name,
+  File "C:\Users\7brit\OneDrive\Desktop\renpy-8.3.7-sdk\renpy\exports\displayexports.py", line 477, in show
+    if not base.find_target() and renpy.config.missing_show:
+  File "C:\Users\7brit\OneDrive\Desktop\renpy-8.3.7-sdk\renpy\display\image.py", line 421, in find_target
+    self.target = target._duplicate(a)
+  File "C:\Users\7brit\OneDrive\Desktop\renpy-8.3.7-sdk\renpy\display\displayable.py", line 249, in _duplicate
+    args.extraneous()
+  File "C:\Users\7brit\OneDrive\Desktop\renpy-8.3.7-sdk\renpy\display\displayable.py", line 109, in extraneous
+    raise Exception("Image '{}' does not accept attributes '{}'.".format(
+Exception: Image 'orion' does not accept attributes 'left'.
 
 Windows-10-10.0.26100 AMD64
 Ren'Py 8.3.7.25031702
 Divided Skies 1.0
-Thu Apr 17 00:32:14 2025
+Mon Apr 21 01:18:16 2025
