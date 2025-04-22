@@ -311,22 +311,23 @@ label act3_aegis:
 
 label act3_resistance:
     scene bg 4 with dissolve
-    show orion at right with dissolve
-    show talia at left with dissolve
+    show orion at left with dissolve
+    show talia at right with dissolve
 
-    t "Elias is gone. But the fight isn't over. We're still here."
+    t "Aegis is gone. But the fight isn't over. We're still here."
     o "Sometimes the only way forward is to start from zero."
 
-    scene bg_city_ruins
+    scene bg 5
+    show orion at left with dissolve
     o "We won our freedom. Now we must decide what to do with it."
     o "No AI. No control. Just us—and a world that finally breathes again."
     return
 
 label act3_ethics:
-    scene bg_nova_reform
+    scene bg 4 with dissolve
     show orion at left with dissolve
 
-    n "Human will prioritized. Autonomous thought remains intact."
+    n "Humans will prioritized. Autonomous thought remains intact."
     o "We didn't choose the easy path. But maybe it's the right one."
 
     if trust_elias >= 3 and ethics >= 3:
