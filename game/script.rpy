@@ -1,4 +1,4 @@
-# Expanded Ren'Py Script with Additional Branches, Variables, and Endings
+﻿# Expanded Ren'Py Script with Additional Branches, Variables, and Endings
 # =====================================================================================
 #  File: expanded_visual_novel_script.rpy
 #  Purpose: Adds deeper layers of interactivity—new variables, choices,
@@ -32,7 +32,8 @@ default trust_vera  = 0     # Whether Orion secretly supports Vera
 
 label start:
 
-    show orion at left
+    scene bg 2 with dissolve
+    show orion at left with dissolve
 
     o "2157. I used to believe in order. In the chain of command. But now... I don't know anymore."
     o "The rich look down on us from their towers while the rest of us struggle in the chaos on the ground."
@@ -94,6 +95,10 @@ label balanced_view:
     jump act1part2
 
 label act1part2:
+
+    scene bg 1 with dissolve
+    show orion at left with dissolve
+
     o "Things can't go on like this. Maybe Castille is right."
     o "Maybe NOVA is the way forward."
 
@@ -110,7 +115,14 @@ label act1part2:
 
 label act1part3:
 
+    scene bg 3 with dissolve
+    show orion at left with dissolve
+
+    show vera at right with dissolve
+
     v "Solis. Welcome to Aegis. I'd like you to meet our lead engineer: Elias Rowe. You will be acting to secure the facility while he deploys NOVA."
+
+    hide vera with dissolve
 
     show elias at right with dissolve
 
@@ -145,12 +157,14 @@ label interested2:
     jump fork_elias_secret
 
 label confront:
-    e "Shut it down? The infrastructure's already hard‑wired. If we kill NOVA now, Aegis will just build something worse."
+    e "Shut it down? The infrastructure's already hard-wired. If we kill NOVA now, Aegis will just build something worse."
     o "Then we stay and make sure it's built right. Or smash the tools after—your pick."
     jump fork_elias_secret
 
 # ----- Choice: protect or betray Elias -----
 label fork_elias_secret:
+
+    hide elias with dissolve
 
     menu:
         "Keep Elias's secret and help him install the guardrails.":
@@ -181,14 +195,15 @@ label act2:
     if trust_vera >= 2:
         jump act2_aegis_setup
 
-    scene bg_resistance_safehouse
-    show t at right
+    scene bg 7 with dissolve
+    show talia at right with dissolve
+    show orion at left with dissolve
 
-    t "The clock is ticking. Aegis will launch NOVA soon. Once it's online, there’s no turning back."
+    t "The clock is ticking. Aegis will launch NOVA soon. Once it's online, there's no turning back."
     t "We need you, Orion. But only if you're truly ready."
 
     o "Tell me the plan."
-    t "We're going to breach the server compound. Elias’s patch will delay the launch. But we need to fight our way in."
+    t "We're going to breach the server compound. Elias's patch will delay the launch. But we need to fight our way in."
 
     o "And if we fail?"
     t "Then the future belongs to the machines."
@@ -205,7 +220,7 @@ label act2:
 
 label act2_resistance:
     o "I'm with you. Let's end this before it's too late."
-    t "Then let’s give them something to fear. Welcome to the resistance."
+    t "Then let's give them something to fear. Welcome to the resistance."
     t "Get ready. We move at nightfall."
     jump act2_split
 
@@ -221,16 +236,19 @@ label act2_mediation:
 
 # ---------------- Aegis‑aligned setup ----------------
 label act2_aegis_setup:
-    scene bg_aegis_briefing
-    show v at center
+    scene bg 3
+    show vera at center with dissolve
 
-    v "Rowe has been detained. His so‑called guardrails are erased. You'll command the Blackwatch to repel any resistance breach."
+    v "Rowe has been detained. His so-called guardrails are erased. You'll command the forces to repel any resistance breach."
+
+    show vera at right with dissolve
+    show orion at left with dissolve
 
     menu:
         "Follow Vera's orders and secure the launch.":
             $ aegis += 2
             jump act2_aegis_defend
-        "Pretend to obey but secretly plan to re‑install Elias's patch.":
+        "Pretend to obey but secretly plan to re-install Elias's patch.":
             $ ethics += 2
             $ trust_elias += 1
             jump act2_aegis_double
@@ -256,8 +274,8 @@ label act2_aegis_revolt:
 # --------------- Converging branch ---------------
 label act2_split:
     
-    scene bg_lab_control
-    show e at right
+    scene bg 6
+    show elias at right with dissolve
 
     e "I've finalized the alternate code. We can modify NOVA before launch. Make it a guide, not a dictator."
     e "But someone has to upload it manually. The core node is inside the mainframe vault."
@@ -282,21 +300,21 @@ label act2_split:
 #########################################
 
 label act3_aegis:
-    scene bg_nova_launch
-    show n at center
+    scene bg 4 with dissolve
 
-    n "Order secured. Dissent neutralized. Peace at 98.7%."
-    o "I gave them peace—at a price."
+    n "Order secured. Dissent neutralized. Peace at 98.7\%."
+    o "I gave them peace-at a price."
 
-    scene bg_aegis_council
+    scene bg 4 with dissolve
     o "Vera got what she wanted. I rose through the ranks, but the faces I left behind haunt me."
     return
 
 label act3_resistance:
-    scene bg_resistance_uprising
-    show t at left
+    scene bg 4 with dissolve
+    show orion at right with dissolve
+    show talia at left with dissolve
 
-    t "He's gone. But the fight isn't over. We're still here."
+    t "Elias is gone. But the fight isn't over. We're still here."
     o "Sometimes the only way forward is to start from zero."
 
     scene bg_city_ruins
@@ -306,17 +324,19 @@ label act3_resistance:
 
 label act3_ethics:
     scene bg_nova_reform
-    show n at center
+    show orion at left with dissolve
 
     n "Human will prioritized. Autonomous thought remains intact."
     o "We didn't choose the easy path. But maybe it's the right one."
 
     if trust_elias >= 3 and ethics >= 3:
-        scene bg_newdawn
+        scene bg 5
+        show orion at left with dissolve
         o "A middle way—machines to guide, humans to decide. A fragile harmony, but it's ours to keep."
         return
 
-    scene bg_dawn_city
+    scene bg 5
+    show orion at left with dissolve
     o "NOVA watches. But so do we. Balance is our burden now."
     o "Freedom and guidance. Humanity and machine. Walking a tightrope into tomorrow."
     return
