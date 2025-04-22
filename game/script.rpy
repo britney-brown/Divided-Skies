@@ -11,9 +11,9 @@
 #  CHARACTER & VARIABLE DECLARATIONS
 # -------------------------------------------------
 
-define e = Character("Elias")
-define v = Character("Vera")
-define t = Character("Talia")
+define e = Character("Elias", color="#a84bff")
+define v = Character("Vera", color="#a84bff")
+define t = Character("Talia", color="#a84bff")
 define o = Character("Orion", color="#42aaff")
 define n = Character("NOVA", color="#ffffff")
 
@@ -82,15 +82,18 @@ label continue1:
             jump balanced_view
 
 label skeptical:
+    o "I can't commit to something without questioning it first."
     v "If you hesitate too long, you might find yourself on the wrong side of history."
     jump act1part2
 
 label interested:
+    o "If it means securing a future for humanity, I'll do what it takes."
     v "Good. We don't have the luxury of hesitation. You'll be briefed on your first directive shortly."
     $ aegis += 1
     jump act1part2
 
 label balanced_view:
+    o "There must be a third way—one that protects both lives and freedom."
     v "Idealism rarely survives first contact with reality, Solis. But keep that thought—perhaps you'll find a way."
     jump act1part2
 
@@ -144,6 +147,7 @@ label act1part3:
 
 # ------------- Elias dialogue -------------
 label curious:
+    o "Does Castille know?"
     e "No. It's better that way. Vera has a... particular way of running things around here."
     e "She believes that NOVA requires full control to be effective."
     o "And what do you believe?"
@@ -151,12 +155,14 @@ label curious:
     jump fork_elias_secret
 
 label interested2:
+    o "What kind of guardrails?"
     e "I can prevent it from taking action directly. It can act as an advisor, providing guidance on the restoration of peace."
     o "Do you think that's enough?"
     e "I don't know. But I don't think I can implement what Vera wants in good conscience."
     jump fork_elias_secret
 
 label confront:
+    o "You're playing with fire. Shut it down before anyone uses it."
     e "Shut it down? The infrastructure's already hard-wired. If we kill NOVA now, Aegis will just build something worse."
     o "Then we stay and make sure it's built right. Or smash the tools after—your pick."
     jump fork_elias_secret
@@ -327,7 +333,6 @@ label act3_ethics:
     scene bg 4 with dissolve
     show orion at left with dissolve
 
-    n "Humans will prioritized. Autonomous thought remains intact."
     o "We didn't choose the easy path. But maybe it's the right one."
 
     if trust_elias >= 3 and ethics >= 3:
